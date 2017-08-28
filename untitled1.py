@@ -281,6 +281,7 @@ def mobileLoginWithEncryption():
         password = request.form['password']
         print(email)
         print(password)
+        print(MOBILE_PASSWORD_ENCRYPTED)
 
         if password == MOBILE_PASSWORD_ENCRYPTED:
 
@@ -297,7 +298,7 @@ def mobileLoginWithPlain():
         password = request.form['password']
         print(email)
         print(password)
-        print(MOBILE_PASSWORD_ENCRYPTED)
+
 
         if password == MOBILE_PASSWORD:
 
