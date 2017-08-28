@@ -20,6 +20,7 @@ class NotAuthorised(Exception):
 
 @app.errorhandler(404)
 def page_not_found(e):
+    print("Page not found")
     return app.send_static_file('index.html')
 
 @app.errorhandler(Exception)
@@ -30,8 +31,9 @@ def handle_invalid_usage(error):
     else:
         print(error)
         response = "Something went wront"
-        print(response)
-        return app.send_static_file('index.html')
+        print(response , error)
+        return app.send_static_file("index.html")
+        # return "Something went wrong" , 200
 
 @app.errorhandler(NotAuthorised)
 def handle_invalid_usage(error):
@@ -42,34 +44,35 @@ def handle_invalid_usage(error):
 
 @app.before_request
 def before_request():
-    print(request.endpoint)
-
-    if  (request.endpoint=="_static" or request.endpoint == "static"):
-        print("static")
-        return
-
-    if  (request.endpoint=="generateOtp"):
-        print("generateOtp")
-        return
-
-
-    Headers = request.headers
-    if not Headers["Authorization"]:
-        raise NotAuthorised()
-
-    Auth = str(Headers["Authorization"] )
-    import base64
-    Auth = (base64.b64decode( Auth).decode('utf-8') )
-
-    Auth = Auth.split(":")
-    print(Auth)
-    if not len(Auth) == 3:
-        raise NotAuthorised()
-
-    _user = Auth[1]
-    _password= Auth[2]
-
     try:
+        print(request.endpoint)
+
+        if  (request.endpoint=="_static" or request.endpoint == "static"):
+            print("static")
+            return
+
+        if  (request.endpoint=="generateOtp"):
+            print("generateOtp")
+            return
+
+
+        Headers = request.headers
+        if not Headers["Authorization"]:
+            raise NotAuthorised()
+
+        Auth = str(Headers["Authorization"] )
+        import base64
+        Auth = (base64.b64decode( Auth).decode('utf-8') )
+
+        Auth = Auth.split(":")
+        print(Auth)
+        if not len(Auth) == 3:
+            raise NotAuthorised()
+
+        _user = Auth[1]
+        _password= Auth[2]
+
+
 
         if Auth[0] == "otp":
 

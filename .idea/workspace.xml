@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="207e4713-67ba-4182-960f-b33654a330f4" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/index.html" afterPath="$PROJECT_DIR$/static/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/untitled1.py" afterPath="$PROJECT_DIR$/untitled1.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -12,7 +14,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/untitled1$untitled1.coverage" NAME="untitled1 Coverage Results" MODIFIED="1503904410863" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/untitled1$untitled1.coverage" NAME="untitled1 Coverage Results" MODIFIED="1503906367353" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
@@ -20,15 +22,14 @@
       <file leaf-file-name="untitled1.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/untitled1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="39" column="19" lean-forward="true" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="19" />
+            <state relative-caret-position="325">
+              <caret line="270" column="26" lean-forward="true" selection-start-line="270" selection-start-column="26" selection-end-line="270" selection-end-column="26" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
-                <element signature="e#914#1945#0" expanded="false" />
-                <element signature="e#1974#2135#0" expanded="false" />
-                <element signature="e#2207#3123#0" expanded="false" />
-                <element signature="e#3190#3590#0" expanded="false" />
-                <element signature="e#5937#6574#0" expanded="false" />
+                <element signature="e#2133#2294#0" expanded="false" />
+                <element signature="e#2366#3282#0" expanded="false" />
+                <element signature="e#3349#3749#0" expanded="false" />
+                <element signature="e#6096#6733#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -56,6 +57,9 @@
       <find>checkPing</find>
       <find>&quot;static</find>
       <find>static</find>
+      <find>send_static_file</find>
+      <find>went wr</find>
+      <find>ping</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -372,15 +376,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/untitled1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="39" column="19" lean-forward="true" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="19" />
+        <state relative-caret-position="325">
+          <caret line="270" column="26" lean-forward="true" selection-start-line="270" selection-start-column="26" selection-end-line="270" selection-end-column="26" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
-            <element signature="e#914#1945#0" expanded="false" />
-            <element signature="e#1974#2135#0" expanded="false" />
-            <element signature="e#2207#3123#0" expanded="false" />
-            <element signature="e#3190#3590#0" expanded="false" />
-            <element signature="e#5937#6574#0" expanded="false" />
+            <element signature="e#2133#2294#0" expanded="false" />
+            <element signature="e#2366#3282#0" expanded="false" />
+            <element signature="e#3349#3749#0" expanded="false" />
+            <element signature="e#6096#6733#0" expanded="false" />
           </folding>
         </state>
       </provider>
