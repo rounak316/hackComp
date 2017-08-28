@@ -1,7 +1,7 @@
 from flask import Flask,request,jsonify
 from flask_cors import CORS
 import json
-app = Flask(__name__)
+app = Flask(__name__ ,  static_url_path='/static')
 CORS(app)
 OTP_RESPONSE = {
     "message":"",
@@ -16,6 +16,10 @@ OTP = {}
 class NotAuthorised(Exception):
     pass
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return app.send_static_file('index.html')
+
 @app.errorhandler(Exception)
 def handle_invalid_usage(error):
     if  request.method == "OPTIONS":
@@ -25,17 +29,27 @@ def handle_invalid_usage(error):
         print(error)
         response = "Something went wront"
         print(response)
-        return response, 403
+        return app.send_static_file('index.html')
 
 @app.errorhandler(NotAuthorised)
 def handle_invalid_usage(error):
     print(error)
     response = "Not authorised"
     print(response)
-    return response , 403
+    return app.send_static_file('index.html')
 
 @app.before_request
 def before_request():
+    print(request.endpoint)
+
+    if  (request.endpoint=="_static" or request.endpoint == "static"):
+        print("static")
+        return
+
+    if  (request.endpoint=="generateOtp"):
+        print("generateOtp")
+        return
+
 
     Headers = request.headers
     if not Headers["Authorization"]:
@@ -146,9 +160,10 @@ def login():
     return 'Hello World!'+username
 
 @app.route('/')
-def search():
-    username = request.args.get('username')
-    return 'Hello World!'+str(username)
+def _static():
+    return app.send_static_file('index.html')
+    # username = request.args.get('username')
+    # return 'Hello World!'+str(username)
 
 Templates = {"list":
                  [
@@ -247,5 +262,6 @@ def createTemplate():
         raise Exception("opz")
     return jsonify(content)
 
+
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port=80)
