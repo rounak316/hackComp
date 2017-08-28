@@ -38,7 +38,7 @@ def handle_invalid_usage(error):
     print(error)
     response = "Not authorised"
     print(response)
-    return app.send_static_file('index.html')
+    return "Dont try to act smart" , 403
 
 @app.before_request
 def before_request():
