@@ -268,35 +268,46 @@ def createTemplate():
     return jsonify(content)
 
 
+MOBILE_PASSWORD = "SecurityBreakDown"
+MOBILE_PASSWORD_ENCRYPTED = "SecurityBreakDown"
+
+
+
 @app.route('/mobileLoginWithEncryption',methods=["POST"])
 def mobileLoginWithEncryption():
     try:
-        email = request.form.get['email']
-        password = request.form.get['password']
+        email = request.form['email']
+        password = request.form['password']
         print(email)
         print(password)
-        return jsonify( {"status":True , "message":"Valid Credentials"} )
 
+        if password == MOBILE_PASSWORD_ENCRYPTED:
+
+            return jsonify( {"status":True , "message":"Valid Credentials"} )
+        else:
+            raise Exception()
     except:
         return jsonify( {"status":False , "message":"Invalid Credentials"} )
 
 @app.route('/mobileLoginWithPlain',methods=["POST"])
 def mobileLoginWithPlain():
     try:
-        email = request.form.get['email']
-        password = request.form.get['password']
+        email = request.form['email']
+        password = request.form['password']
         print(email)
         print(password)
-        return jsonify( {"status":True , "message":"Valid Credentials"} )
 
+        if password == MOBILE_PASSWORD:
+
+            return jsonify( {"status":True , "message":"Valid Credentials"} )
+        else:
+            raise Exception()
     except:
         return jsonify( {"status":False , "message":"Invalid Credentials"} )
 
 
-MOBILE_PASSWORD = "SecurityBreakDown"
-MOBILE_PASSWORD_ENCRYPTED = "SecurityBreakDown"
 
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=80)
+    app.run(host='0.0.0.0', port=8000)
