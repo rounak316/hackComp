@@ -51,8 +51,8 @@ def before_request():
             print("static")
             return
 
-        if  (request.endpoint=="generateOtp"):
-            print("generateOtp")
+        if  (request.endpoint=="generateOtp") or (request.endpoint=="mobileLoginWithEncryption" or (request.endpoint=="mobileLoginWithPlain"):
+            print("mobieOTP")
             return
 
 
@@ -266,6 +266,36 @@ def createTemplate():
     else:
         raise Exception("opz")
     return jsonify(content)
+
+
+@app.route('/mobileLoginWithEncryption',methods=["POST"])
+def mobileLoginWithEncryption():
+    try:
+        email = request.form.get['email']
+        password = request.form.get['password']
+        print(email)
+        print(password)
+        return jsonify( {"status":True , "message":"Valid Credentials"} )
+
+    except:
+        return jsonify( {"status":False , "message":"Invalid Credentials"} )
+
+@app.route('/mobileLoginWithPlain',methods=["POST"])
+def mobileLoginWithPlain():
+    try:
+        email = request.form.get['email']
+        password = request.form.get['password']
+        print(email)
+        print(password)
+        return jsonify( {"status":True , "message":"Valid Credentials"} )
+
+    except:
+        return jsonify( {"status":False , "message":"Invalid Credentials"} )
+
+
+MOBILE_PASSWORD = "SecurityBreakDown"
+MOBILE_PASSWORD_ENCRYPTED = "SecurityBreakDown"
+
 
 
 if __name__ == '__main__':
