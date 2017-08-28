@@ -8,6 +8,8 @@ OTP_RESPONSE = {
     "status" : True
 }
 
+LEADING_API_KW = "/api"
+
 USERNAME  = ['admin']
 OTP_EXPIRY_TIME = 60*60 #seconds
 
@@ -101,7 +103,7 @@ def generateOTP():
 
 
 
-@app.route('/validateOTP')
+@app.route(LEADING_API_KW+'/validateOTP')
 def validateOTP():
     username = request.args.get('username')
     otp = request.args.get('otp')
@@ -137,7 +139,7 @@ def validateOTP():
 
     return str(OTP_RESPONSE)
 
-@app.route('/generateOtp')
+@app.route(LEADING_API_KW+'/generateOtp')
 def generateOtp():
     username = request.args.get('username')
     if not username in USERNAME:
@@ -153,7 +155,7 @@ def generateOtp():
 
     return jsonify({"message":"4 digit OTP has been generated, you can use it login via it for next 60 minutes"})
 
-@app.route('/login')
+@app.route(LEADING_API_KW+'/login')
 def login():
     username = request.args.get('username')
     password = request.args.get('password')
@@ -210,7 +212,7 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1] in app.config['ALLOWED_EXTENSIONS']
 
-@app.route('/createEntity', methods=['POST'])
+@app.route(LEADING_API_KW+'/createEntity', methods=['POST'])
 def upload():
     # Get the name of the uploaded file
     print("myfile")
@@ -231,7 +233,7 @@ def upload():
         return {}
 
 
-@app.route('/Entity')
+@app.route(LEADING_API_KW+'/Entity')
 def xss():
     query = request.args.get('query')
 
@@ -242,18 +244,18 @@ def xss():
 
 
 
-@app.route('/listTemplates')
+@app.route(LEADING_API_KW+'/listTemplates')
 def getTemplates():
     return jsonify(Templates)
 
-@app.route('/api/ping')
+@app.route(LEADING_API_KW+'/api/ping')
 def checkPing():
     return jsonify({})
 
-@app.route('/listEntities')
+@app.route(LEADING_API_KW+'/listEntities')
 def getEntities():
     return jsonify(Entities)
-@app.route('/createTemplate',methods=["POST"])
+@app.route(LEADING_API_KW +'/createTemplate',methods=["POST"])
 def createTemplate():
     content = request.get_json(silent=True)
     if content[ "template"]:
