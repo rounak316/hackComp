@@ -51,7 +51,7 @@ def before_request():
             print("static")
             return
 
-        if  (request.endpoint=="generateOtp") or (request.endpoint=="mobileLoginWithEncryption" or (request.endpoint=="mobileLoginWithPlain"):
+        if  (request.endpoint=="generateOtp") or (request.endpoint=="mobileLoginWithEncryption" or (request.endpoint=="mobileLoginWithPlain")):
             print("mobieOTP")
             return
 
