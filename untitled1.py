@@ -8,7 +8,7 @@ OTP_RESPONSE = {
     "status" : True
 }
 
-LEADING_API_KW = "/api"
+LEADING_API_KW = ""
 
 USERNAME  = ['admin']
 OTP_EXPIRY_TIME = 60*60 #seconds
@@ -103,7 +103,7 @@ def generateOTP():
 
 
 
-@app.route(LEADING_API_KW+'/validateOTP')
+@app.route(LEADING_API_KW+ '/validateOTP')
 def validateOTP():
     username = request.args.get('username')
     otp = request.args.get('otp')
